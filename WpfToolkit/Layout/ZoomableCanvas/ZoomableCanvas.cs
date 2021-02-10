@@ -799,10 +799,15 @@ namespace System.Windows.Controls
             {
                 get
                 {
+                    if (index >= _items.Count)
+                        return Rect.Empty;
+                        //index = _items.Count - 1;
                     return _items[index].Bounds;
                 }
                 set
                 {
+                    if (index >= _items.Count)
+                        return;
                     var item = _items[index];
                     var bounds = item.Bounds;
                     if (bounds != value)
