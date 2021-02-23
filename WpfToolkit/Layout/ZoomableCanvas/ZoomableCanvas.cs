@@ -873,7 +873,8 @@ namespace System.Windows.Controls
                         _items[i].Index = i - count;
                     }
                 }
-                _items.RemoveRange(index, count);
+                if(index < _items.Count)
+                    _items.RemoveRange(index, count);
                 _extent = Rect.Empty;
 
                 if (ExtentChanged != null)
