@@ -1703,26 +1703,26 @@ namespace System.Windows.Controls
                 return Rect.Empty;
             }
 
-            rectangle = visual.TransformToAncestor(this).TransformBounds(rectangle);
-            rectangle = RenderTransform.TransformBounds(rectangle);
+            //rectangle = visual.TransformToAncestor(this).TransformBounds(rectangle);
+            //rectangle = RenderTransform.TransformBounds(rectangle);
 
-            var width = ((IScrollInfo)this).ViewportWidth;
-            var height = ((IScrollInfo)this).ViewportHeight;
-            var left = -rectangle.X;
-            var right = left + width - rectangle.Width;
-            var top = -rectangle.Y;
-            var bottom = top + height - rectangle.Height;
-            var deltaX = left > 0 && right > 0 ? Math.Min(left, right) : left < 0 && right < 0 ? Math.Max(left, right) : 0.0;
-            var deltaY = top > 0 && bottom > 0 ? Math.Min(top, bottom) : top < 0 && bottom < 0 ? Math.Max(top, bottom) : 0.0;
+            //var width = ((IScrollInfo)this).ViewportWidth;
+            //var height = ((IScrollInfo)this).ViewportHeight;
+            //var left = -rectangle.X;
+            //var right = left + width - rectangle.Width;
+            //var top = -rectangle.Y;
+            //var bottom = top + height - rectangle.Height;
+            //var deltaX = left > 0 && right > 0 ? Math.Min(left, right) : left < 0 && right < 0 ? Math.Max(left, right) : 0.0;
+            //var deltaY = top > 0 && bottom > 0 ? Math.Min(top, bottom) : top < 0 && bottom < 0 ? Math.Max(top, bottom) : 0.0;
 
-            var offset = Offset;
-            offset.X -= deltaX;
-            offset.Y -= deltaY;
-            Offset = offset;
+            //var offset = Offset;
+            //offset.X -= deltaX;
+            //offset.Y -= deltaY;
+            //Offset = offset;
 
-            rectangle.X += deltaX;
-            rectangle.Y += deltaY;
-            rectangle.Intersect(new Rect(0, 0, width, height));
+            //rectangle.X += deltaX;
+            //rectangle.Y += deltaY;
+            //rectangle.Intersect(new Rect(0, 0, width, height));
 
             return rectangle;
         }
